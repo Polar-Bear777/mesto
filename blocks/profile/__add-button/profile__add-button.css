@@ -8,7 +8,7 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
-  transition: .1s
+  transition: .1s;
 }
 
 /* Точка перелома между 320 и 1280 */
