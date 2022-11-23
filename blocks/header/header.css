@@ -1,0 +1,13 @@
+.header {
+  max-width: 880px;
+  width: 100%;
+  margin: 45px auto 0;
+}
+
+/* Точка перелома между 320 и 1280 */
+@media screen and (max-width: 740px) {
+  .header {
+    max-width: 320px;
+    margin-top: 28px;
+  }
+}

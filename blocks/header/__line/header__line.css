@@ -1,0 +1,13 @@
+.header__line {
+  opacity: 0.7;
+  border: 1px solid #545454;
+  margin: 41px auto 0;
+}
+
+/* Точка перелома между 320 и 1280 */
+@media screen and (max-width: 740px) {
+  .header__line {
+    margin-top: 31.6px;
+  }
+}
+
