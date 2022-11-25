@@ -5,10 +5,11 @@
   background-image: url('../../../images/close.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: -32px;
   left: 430px;
+  cursor: pointer;
 }
 
 /* Точка перелома между 320 и 1280 */

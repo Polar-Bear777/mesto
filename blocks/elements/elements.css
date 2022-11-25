@@ -4,7 +4,7 @@
   grid-template-columns: repeat(3, minmax(min-content, max-content));
   row-gap: 20px;
   column-gap: 17px;
-  margin: 46.25px auto 0;
+  margin: 46px auto 0;
 }
 
 /* Точка перелома между 320 и 1280 */

@@ -7,6 +7,9 @@
   color: #fff;
   margin: 0 18px 0 0;
   text-rendering: optimizeLegibility;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* Точка перелома между 320 и 1280 */

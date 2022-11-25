@@ -13,4 +13,4 @@
 
 ![Add pic.](/images/logo.svg)
 
-Ссылка на gh-pages:
+Ссылка на gh-pages: 
