@@ -7,6 +7,7 @@
   opacity: 1;
   transition: opacity 0.3s;
   cursor: pointer;
+  margin: 0 0 0 auto;
 }
 
 .profile__add-button:hover {

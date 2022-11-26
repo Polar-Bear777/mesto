@@ -14,7 +14,6 @@
   <main class="content">
   <!-- Секция Profile !-->
     <section class="profile">
-      <div class="profile__block"> <!-- Данный блок служит ящиком, где используется флекс для фото и для ящика с профиль инфо, если я его удалю, все ломается :(-->
       <img src="./images/image.png" class="profile__avatar" alt="Портрет Жак-Ив Кусто">
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -22,7 +21,6 @@
           <img src="./images/edit.svg" class="profile__edit" alt="Кнопка 'Редактировать'">
         </button>
         <h2 class="profile__subtitle">Исследователь океана</h2>
-      </div>
       </div>
       <button class="profile__add-button">
         <img src="./images/add.svg" class="profile__add" alt="Кнопка 'Добавить'">
@@ -80,7 +78,7 @@
   </footer>
   <!-- PopUp -->
   <div class="popup">
-    <div class="popup__container"> <!-- В задании прописано сделать контейнер, если я его удаляю, все ломается :(-->
+     <div class="popup__container"> <!-- Не получается одним свойством сделать так, чтобы верстка не сломалась, я не могу сделать затемнение чтобы весь попап обхаватыл страницу и при этом был полупрозрачный фон, без контейнера никак не получается. В задании прописано: Позиционируйте попап фиксированно по центру экрана и задайте попапу полупрозрачный чёрный фон. Полупрозрачный фон верстайте отдельным блоком popup. Внутри него расположите само окно с формой popup__container, спозиционированное по центру. :(-->
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="popupform">
@@ -88,7 +86,6 @@
         <input type="text" id="about-me" class="popup__input popup__input_type_info" name="about-me" placeholder="О себе">
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
-    </div>
   </div>
   <script src="./scripts/index.js"></script>
  </body>

@@ -10,6 +10,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 294px;
 }
 
 /* Точка перелома между 320 и 1280 */
@@ -19,5 +20,6 @@
     text-align: center;
     font-size: 27px;
     margin-right: 10px;
+    max-width: 189px;
   }
 }
