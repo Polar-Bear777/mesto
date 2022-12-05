@@ -16,9 +16,3 @@
   opacity: 0.5;
   transition: .1s;
 }
-
-.elements__like:active {
-  background-image: url('../../../images/like-black.svg');
-  opacity: 0.5;
-  transition: .5s;
-}
