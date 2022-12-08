@@ -31,7 +31,7 @@ const initialCards = [
 
 // 1 ФОРМА
 // ДЕЛАЕМ ВЫБОРКУ DOM-ЭЛЕМЕНТОВ
-const popup = document.querySelectorAll(".popup"); // Общий popup
+const popups = document.querySelectorAll(".popup"); // Общий popup
 const profilePopup = document.querySelector(".profile-popup"); // profile-popup
 const popupCloseButtonElement = document.querySelector(".popup__close"); // Для popup
 const popupOpenButtonElement = document.querySelector(".profile__edit-button"); // Для popup
@@ -44,16 +44,14 @@ const nameProfile = document.querySelector(".profile__title"); // Находим
 const jobProfile = document.querySelector(".profile__subtitle"); // Находим поля в DOM для profile
 
 // ОБЪЯВЛЯЕМ ФУНКЦИИ
-const openPopup = function (popup) {
+const openPopup = function (popups) {
   // Объявляем функцию для открытия попапа
-  popup.classList.add("popup_is-opened");
-  nameInput.value = nameProfile.textContent;
-  jobInput.value = jobProfile.textContent;
+  popups.classList.add("popup_is-opened");
 };
 
-function closePopup(popup) {
+function closePopup(popups) {
   // Универсальная функция закрытия
-  popup.classList.remove("popup_is-opened");
+  popups.classList.remove("popup_is-opened");
 }
 
 // находим все крестики проекта по универсальному селектору
@@ -61,10 +59,10 @@ const closeButtons = document.querySelectorAll(".popup__close");
 
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
-  const popup = button.closest(".popup");
+  const popups = button.closest(".popup");
   console.log("");
   // устанавливаем обработчик закрытия на крестик
-  button.addEventListener("click", () => closePopup(popup));
+  button.addEventListener("click", () => closePopup(popups));
 });
 
 // ДОБАВЛЯЕМ СЛУШАТЕЛЕЙ
@@ -129,7 +127,7 @@ const popupViewElement = popupPhotoElement.querySelector(".popup-photo__image");
 // ОБЪЯВЛЯЕМ ВСЕ ФУНКЦИИ
 function openPhotoPopup(title, link, alt) {
   // Функция открытия попапа
-  popupPhotoElement.classList.add("popup_is-opened");
+  openPopup(popupPhotoElement);
   popupPhotoTitleElement.textContent = title;
   popupViewElement.src = link;
   popupViewElement.alt = alt;
@@ -178,3 +176,4 @@ const renderCard = (dataCard) => {
 initialCards.forEach((dataCard) => {
   renderCard(dataCard);
 });
+
