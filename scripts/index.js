@@ -66,7 +66,11 @@ closeButtons.forEach((button) => {
 });
 
 // ДОБАВЛЯЕМ СЛУШАТЕЛЕЙ
-popupOpenButtonElement.addEventListener("click", () => openPopup(profilePopup)); // Регистрируем обработчики событий по клику для .edit__button
+popupOpenButtonElement.addEventListener("click", () =>{ 
+  openPopup(profilePopup)
+  nameInput.value = nameProfile.textContent; 
+  jobInput.value = jobProfile.textContent;
+}); // Регистрируем обработчики событий по клику для .edit__button
 
 // ДОБАВЛЯЕМ ФОРМУ
 function handleProfileFormSubmit(evt) {
