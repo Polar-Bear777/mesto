@@ -29,6 +29,10 @@ const initialCards = [
   },
 ];
 
+
+
+
+
 // 1 ФОРМА
 // ДЕЛАЕМ ВЫБОРКУ DOM-ЭЛЕМЕНТОВ
 const popups = document.querySelectorAll(".popup"); // Общий popup
@@ -43,15 +47,32 @@ const formElement = profilePopup.querySelector(".popup__form"); // Находи�
 const nameProfile = document.querySelector(".profile__title"); // Находим поля в DOM для profile
 const jobProfile = document.querySelector(".profile__subtitle"); // Находим поля в DOM для profile
 
+
+// Закрытие всех попапов на оверлей
+function closePopupByOverlay(e) {
+  if (e.target.classList.contains('popup_is-opened'))
+  closePopup(e.target);
+}
+
+// Закрытие всех попапов через ESC
+function closePopupByEsc(e) { // Функция закрытия попапов через ESC
+if (e.key === "Escape") {
+  closePopup(document.querySelector('.popup_is-opened'))
+}
+}
+
 // ОБЪЯВЛЯЕМ ФУНКЦИИ
 const openPopup = function (popups) {
   // Объявляем функцию для открытия попапа
   popups.classList.add("popup_is-opened");
+  document.addEventListener('click', closePopupByOverlay)
+  document.addEventListener('keydown', closePopupByEsc)
 };
 
 function closePopup(popups) {
   // Универсальная функция закрытия
   popups.classList.remove("popup_is-opened");
+  document.addEventListener('keydown', closePopupByEsc)
 }
 
 // находим все крестики проекта по универсальному селектору
@@ -66,9 +87,9 @@ closeButtons.forEach((button) => {
 });
 
 // ДОБАВЛЯЕМ СЛУШАТЕЛЕЙ
-popupOpenButtonElement.addEventListener("click", () =>{ 
+popupOpenButtonElement.addEventListener("click", () =>{
   openPopup(profilePopup)
-  nameInput.value = nameProfile.textContent; 
+  nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 }); // Регистрируем обработчики событий по клику для .edit__button
 
@@ -83,6 +104,10 @@ function handleProfileFormSubmit(evt) {
 
 // ПРИКРЕПЛЯЕМ ОБРАБОТЧИК К ФОРМЕ
 formElement.addEventListener("submit", handleProfileFormSubmit);
+
+
+
+
 
 // 2 ФОРМА
 // ДЕЛАЕМ ВЫБОРКУ DOM-ЭЛЕМЕНТОВ
@@ -120,6 +145,10 @@ function handleCardFormSubmit(evt) {
 
 // ПРИКРЕПЛЯЕМ ОБРАБОТЧИК К ФОРМЕ
 formcardElement.addEventListener("submit", handleCardFormSubmit);
+
+
+
+
 
 // 3 ФОРМА
 // ДЕЛАЕМ ВЫБОРКУ DOM-ЭЛЕМЕНТОВ
@@ -159,14 +188,14 @@ const generateCard = (dataCard) => {
   image.alt = dataCard.name; // Получаем подпись для фото
 
   cardLike.addEventListener("click", (e) => {
-    e.target.classList.toggle("elements__like_active");
-  }); // Лайк карточки
+    e.target.classList.toggle("elements__like_active"); // Лайк карточки
+  });
   deleteButton.addEventListener("click", (e) => {
     e.target.closest(".elements__item").remove();
-  }); // Удаление карточки
+  });
   image.addEventListener("click", () => {
-    openPhotoPopup(name.textContent, image.src, image.alt);
-  }); // Увеличение картинки и передали значения ссылки, подписи, названия
+    openPhotoPopup(name.textContent, image.src, image.alt); // Увеличение картинки и передали значения ссылки, подписи, названия
+  });
 
   return newCard;
 };
@@ -180,4 +209,3 @@ const renderCard = (dataCard) => {
 initialCards.forEach((dataCard) => {
   renderCard(dataCard);
 });
-

@@ -65,3 +65,8 @@
 @import url("../blocks/popup-photo/__close/popup-photo__close.css");
 @import url("../blocks/popup-photo/__title/popup-photo__title.css");
 @import url("../blocks/popup-photo/__image/popup-photo__image.css");
+
+/* ERROR */
+@import url("../blocks/error/error.css");
+@import url("../blocks/popup/__save/_invalid/popup__save_invalid.css");
+@import url("../blocks/popup/__input/_type/popup__input_type_error.css");

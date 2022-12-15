@@ -21,6 +21,8 @@
 .popup__save:hover {
   opacity: 0.8;
   transition: .1s;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
 }
 
 /* Точка перелома между 320 и 1280 */
