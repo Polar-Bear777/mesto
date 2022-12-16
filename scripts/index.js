@@ -1,6 +1,3 @@
-// Проверка скрипта
-console.log("Привет Мир!");
-
 // Создаем МАССИВ для карточек
 const initialCards = [
   {
@@ -57,9 +54,8 @@ function closePopupByOverlay(e) {
 // Закрытие всех попапов через ESC
 function closePopupByEsc(e) { // Функция закрытия попапов через ESC
 if (e.key === "Escape") {
-  closePopup(document.querySelector('.popup_is-opened'))
-}
-}
+  closePopup(document.querySelector('.popup_is-opened'));
+}}
 
 // ОБЪЯВЛЯЕМ ФУНКЦИИ
 const openPopup = function (popups) {
@@ -72,7 +68,7 @@ const openPopup = function (popups) {
 function closePopup(popups) {
   // Универсальная функция закрытия
   popups.classList.remove("popup_is-opened");
-  document.addEventListener('keydown', closePopupByEsc)
+  document.removeEventListener('keydown', closePopupByEsc)
 }
 
 // находим все крестики проекта по универсальному селектору
@@ -80,10 +76,9 @@ const closeButtons = document.querySelectorAll(".popup__close");
 
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
-  const popups = button.closest(".popup");
-  console.log("");
+  const popup = button.closest(".popup");
   // устанавливаем обработчик закрытия на крестик
-  button.addEventListener("click", () => closePopup(popups));
+  button.addEventListener("click", () => closePopup(popup));
 });
 
 // ДОБАВЛЯЕМ СЛУШАТЕЛЕЙ

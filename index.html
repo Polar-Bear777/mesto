@@ -52,7 +52,7 @@
             maxlength="40"
             required
           >
-          <span id="name-error" class="error"></span>
+          <div class="error-box error-box_type_title"><span id="name-error" class="error"></span></div>
           <input
             type="text"
             id="about-me"
@@ -64,7 +64,7 @@
             required
           >
           <button class="popup__save" type="submit">Сохранить</button>
-          <span id="about-me-error" class="error"></span>
+          <div class="error-box error-box_type_link"><span id="about-me-error" class="error"></span></div>
         </form>
       </div>
     </div>
@@ -85,7 +85,7 @@
             maxlength="30"
             required
           >
-          <span id="title-error" class="error"></span>
+          <div class="error-box error-box_type_title"><span id="title-error" class="error"></span></div>
           <input
             type="url"
             id="link"
@@ -93,7 +93,7 @@
             name="link"
             placeholder="Ссылка на картинку"
           >
-          <span id="link-error" class="error"></span>
+          <div class="error-box error-box_type_link"><span id="link-error" class="error"></span></div>
           <button class="popup__save popup__save_invalid popup-card__save" type="submit">Создать</button>
         </form>
       </div>
