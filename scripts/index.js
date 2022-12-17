@@ -61,13 +61,14 @@ if (e.key === "Escape") {
 const openPopup = function (popups) {
   // Объявляем функцию для открытия попапа
   popups.classList.add("popup_is-opened");
-  document.addEventListener('click', closePopupByOverlay)
+  popups.addEventListener('click', closePopupByOverlay)
   document.addEventListener('keydown', closePopupByEsc)
 };
 
 function closePopup(popups) {
   // Универсальная функция закрытия
   popups.classList.remove("popup_is-opened");
+  popups.removeEventListener('click', closePopupByOverlay) // Снимаем закртыие по ESC
   document.removeEventListener('keydown', closePopupByEsc)
 }
 
