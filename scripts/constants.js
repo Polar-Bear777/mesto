@@ -33,6 +33,6 @@ export const initialCards = [
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
     inactiveButtonClass: 'popup__save_invalid',
-    inputErrorClass: 'error',
-    errorClass: 'popup__error_visible'
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'error_visible'
   });

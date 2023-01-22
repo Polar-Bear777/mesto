@@ -11,9 +11,7 @@ const elementContainer = document.querySelector(".elements"); // Находим 
 const closeButtons = document.querySelectorAll(".popup__close"); // Находим все крестики проекта по универсальному селектору
 
 // 1 Форма
-const popups = document.querySelectorAll(".popup"); // Общий popup
 const profilePopup = document.querySelector(".profile-popup"); // profile-popup
-const popupCloseButtonElement = document.querySelector(".popup__close"); // Для popup
 const popupOpenButtonElement = document.querySelector(".profile__edit-button"); // Для popup
 
 const nameInput = profilePopup.querySelector(".popup__input_type_name"); // Находим поля формы в DOM
@@ -24,7 +22,6 @@ const jobProfile = document.querySelector(".profile__subtitle"); // Находи
 
 // 2 Форма
 const popupCardElement = document.querySelector(".popup-card"); // Для popup-card
-const popupcardCloseButtonElement = popupCardElement.querySelector(".popup-card__close"); // Для popup-card
 const popupAddButtonElement = document.querySelector(".profile__add-button"); // Для popup-card
 
 const namecardInput = popupCardElement.querySelector(".popup-card__input_type_title"); // Находим поля формы в DOM
@@ -33,7 +30,6 @@ const formcardElement = popupCardElement.querySelector(".popup-card__form"); // 
 
 // 3 Форма
 const popupPhotoElement = document.querySelector(".popup-photo"); // Для popup-photo
-const popupPhotoCloseButtonElement = popupPhotoElement.querySelector(".popup-photo__close"); // Для popup-photo
 const popupPhotoTitleElement = popupPhotoElement.querySelector(".popup-photo__title"); // Для popup-photo
 const popupViewElement = popupPhotoElement.querySelector(".popup-photo__image"); // Для popup-photo
 
@@ -65,7 +61,7 @@ function closePopup(popups) {
   popups.classList.remove("popup_is-opened");
   popups.removeEventListener('click', closePopupByOverlay) // Снимаем закртыие по ESC
   document.removeEventListener('keydown', closePopupByEsc)
-}
+};
 
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
@@ -75,11 +71,11 @@ closeButtons.forEach((button) => {
 });
 
 // Функция открытия PopUp Photo
-function openPhotoPopup(title, link, alt) {
+function openPhotoPopup(title, link, image) {
   openPopup(popupPhotoElement);
   popupPhotoTitleElement.textContent = title;
   popupViewElement.src = link;
-  popupViewElement.alt = alt;
+  popupViewElement.alt = image;
 }
 
 
@@ -111,10 +107,14 @@ function handleProfileFormSubmit(evt) {
 }
 
 // Для .profile__add-button
-function handleCardFormSubmit(evt) { 
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  renderCard({ name: namecardInput.value, 
-               link: infocardInput.value });
+  const card = new Card({ name: namecardInput.value,
+                          link: infocardInput.value},
+                          '#place-template',
+                          openPhotoPopup);
+  const cardElement = card.generateCard();
+  renderCard(cardElement);
   namecardInput.value = "";
   infocardInput.value = "";
   closePopup(popupCardElement);
@@ -135,41 +135,13 @@ const cardTemplate = document
   .querySelector("#place-template")
   .content.querySelector(".elements__item");
 
-// ГЕНЕРАЦИЯ КАРТОЧКИ
-const generateCard = (dataCard) => {
-  // Генерируем
-  const newCard = cardTemplate.cloneNode(true); // Клонируем
-  const name = newCard.querySelector(".elements__title"); // Получаем title
-  const image = newCard.querySelector(".elements__image"); // Получаем image
-  const cardLike = newCard.querySelector(".elements__like"); // Получаем like
-  const deleteButton = newCard.querySelector(".elements__delete"); // Получаем delete
 
-  name.textContent = dataCard.name; // Получаем название для карточки
-  image.src = dataCard.link; // Получаем ссылку для фото
-  image.alt = dataCard.name; // Получаем подпись для фото
 
-  cardLike.addEventListener("click", (e) => {
-    e.target.classList.toggle("elements__like_active"); // Лайк карточки
-  });
-  deleteButton.addEventListener("click", (e) => {
-    e.target.closest(".elements__item").remove();
-  });
-  image.addEventListener("click", () => {
-    openPhotoPopup(name.textContent, image.src, image.alt); // Увеличение картинки и передали значения ссылки, подписи, названия
-  });
-
-  return newCard;
-};
-
+// ----------------------------------------------------------------
 // ДОБАВЛЕНИЕ КАРТОЧКИ ИЗ МАССИВА (ОТРИСОВКА)
 const renderCard = (dataCard) => {
-  elementContainer.prepend(generateCard(dataCard));
+  elementContainer.prepend(dataCard);
 };
-
-// РЕНДЕР ВСЕХ КАРТОЧЕК
-initialCards.forEach((dataCard) => {
-  renderCard(dataCard);
-});
 
 
 
@@ -177,11 +149,9 @@ initialCards.forEach((dataCard) => {
 // ВОВЗРАЩАЕМ КАРТОЧКУ СО ВСЕМИ ДАННЫМИ
 // Обойдем массив для каждого элемента карточки
 initialCards.forEach((dataCard) => {
-	const card = new Card(dataCard, '#place-template', openPopup, popupPhotoElement, popupViewElement, popupPhotoTitleElement);
+	const card = new Card(dataCard, '#place-template', openPhotoPopup);
   const cardElement = card.generateCard();
-
-  // Возвращаем карточку в DOM
-  return cardElement;
+  renderCard(cardElement);
 });
 
 

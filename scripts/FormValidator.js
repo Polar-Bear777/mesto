@@ -85,9 +85,6 @@ export class FormValidator {
 
   // ВАЛИДАЦИЯ ФОРМЫ
   enableValidation() {
-		this._form.addEventListener('submit', function (evt) {
-			evt.preventDefault(); // Убрали дефолтное поведение
-		});
 		this._setEventListeners();
 	}
 }

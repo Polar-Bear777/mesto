@@ -52,7 +52,7 @@
             maxlength="40"
             required
           >
-          <div class="error-box error-box_type_title"><span id="name-error" class="error"></span></div>
+          <span id="name-error" class="error error_visible"></span>
           <input
             type="text"
             id="about-me"
@@ -63,8 +63,8 @@
             maxlength="200"
             required
           >
+          <span id="about-me-error" class="error error_visible"></span>
           <button class="popup__save" type="submit">Сохранить</button>
-          <div class="error-box error-box_type_link"><span id="about-me-error" class="error"></span></div>
         </form>
       </div>
     </div>
@@ -85,7 +85,7 @@
             maxlength="30"
             required
           >
-          <div class="error-box error-box_type_title"><span id="title-error" class="error"></span></div>
+          <span id="title-error" class="error error_visible"></span>
           <input
             type="url"
             id="link"
@@ -94,7 +94,7 @@
             placeholder="Ссылка на картинку"
             required
           >
-          <div class="error-box error-box_type_link"><span id="link-error" class="error"></span></div>
+          <span id="link-error" class="error error_visible"></span>
           <button class="popup__save popup__save_invalid popup-card__save" type="submit">Создать</button>
         </form>
       </div>
@@ -122,9 +122,6 @@
     </template>
 
     <!-- Скрипты !-->
-    <script type="module" src="./scripts/constants.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
     <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
