@@ -71,11 +71,11 @@ closeButtons.forEach((button) => {
 });
 
 // Функция открытия PopUp Photo
-function openPhotoPopup(title, link, image) {
+function openPhotoPopup(title, link, alt) {
   openPopup(popupPhotoElement);
   popupPhotoTitleElement.textContent = title;
   popupViewElement.src = link;
-  popupViewElement.alt = image;
+  popupViewElement.image = alt;
 }
 
 
@@ -109,18 +109,24 @@ function handleProfileFormSubmit(evt) {
 // Для .profile__add-button
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const card = new Card({ name: namecardInput.value,
-                          link: infocardInput.value},
-                          '#place-template',
-                          openPhotoPopup);
-  const cardElement = card.generateCard();
-  renderCard(cardElement);
+  const card = createCard({name: namecardInput.value,
+                           link: infocardInput.value});
+  renderCard(card);
   namecardInput.value = "";
   infocardInput.value = "";
   closePopup(popupCardElement);
 }
 
 
+
+// createCard
+function createCard({name, link}) {
+	const card = new Card({name, link},
+                        '#place-template',
+                        openPhotoPopup);
+  const cardElement = card.generateCard();
+	return cardElement;
+}
 
 // ----------------------------------------------------------------
 // ПРИКРЕПЛЯЕМ ОБРАБОТЧИК К ФОРМЕ
@@ -149,9 +155,8 @@ const renderCard = (dataCard) => {
 // ВОВЗРАЩАЕМ КАРТОЧКУ СО ВСЕМИ ДАННЫМИ
 // Обойдем массив для каждого элемента карточки
 initialCards.forEach((dataCard) => {
-	const card = new Card(dataCard, '#place-template', openPhotoPopup);
-  const cardElement = card.generateCard();
-  renderCard(cardElement);
+  const card = createCard(dataCard);
+  renderCard(card);
 });
 
 

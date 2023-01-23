@@ -11,11 +11,10 @@ export class FormValidator {
   }
 
   // ПОКАЗАТЬ ОШИБКУ
-  _checkInputError(input, validationMessage) { 
+  _checkInputError(input, validationMessage) {
     const error = this._form.querySelector(`#${input.id}-error`) // Находим ошибку
     input.classList.add(this._inputErrorClass);
     error.textContent=validationMessage;
-    // error.classList.add(this._errorClass)
   }
 
   // УБРАТЬ ОШИБКУ
@@ -23,8 +22,6 @@ export class FormValidator {
     const error = this._form.querySelector(`#${input.id}-error`) // Находим ошибку
     input.classList.remove(this._inputErrorClass);
     error.textContent='';
-    // error.classList.remove(this._errorClass)
-    
   }
 
   // ПРОВЕРЯЕМ ВАЛИДНОСТЬ ПОЛЕЙ
@@ -44,7 +41,7 @@ export class FormValidator {
 			return !input.validity.valid;
 		});
   }
-  
+
   // СОСТОЯНИЕ КНОПКИ САМБИТА
   _toggleButton(inputs) {
     if(this._invalid(inputs)) {
