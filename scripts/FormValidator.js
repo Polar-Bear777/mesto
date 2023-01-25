@@ -69,7 +69,7 @@ export class FormValidator {
 		});
 	}
 
-  // АВТО-СБРОС ОШИБКИ В ФОРМЕ
+  // АВТО-СБРОС КНОПКИ ПОСЛЕ ДОБАВЛЕНИЯ КАРТЫ
   resetValidation() {
     // Управляем кнопкой
     this._toggleButton();

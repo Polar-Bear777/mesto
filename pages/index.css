@@ -66,6 +66,9 @@
 @import url("../blocks/popup-photo/__title/popup-photo__title.css");
 @import url("../blocks/popup-photo/__image/popup-photo__image.css");
 
+/* PROFILE-POPUP */
+@import url("../blocks/profile-popup/profile-popup.css");
+
 /* ERROR */
 @import url("../blocks/error/error.css");
 @import url("../blocks/error/_visible/error_visible.css");

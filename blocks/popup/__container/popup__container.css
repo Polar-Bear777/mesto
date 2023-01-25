@@ -7,14 +7,14 @@
   box-sizing: border-box;
   position: relative;
   padding: 34px 36px 37px;
-  max-width: 430px;
-  margin: 25% auto;
+  width: 430px;
   }
 
 /* Точка перелома между 320 и 1280 */
-  @media screen and (max-width: 740px) {
-    .popup__container {
-      padding: 25px 22px 25px;
-      max-width: 282px;
-    }
+@media screen and (max-width: 740px) {
+  .popup__container {
+    padding: 25px 22px 25px;
+    width: 282px;
+    max-height: 330px;
   }
+}

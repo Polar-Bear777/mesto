@@ -5,14 +5,12 @@
   transition: .1s;
   box-sizing: border-box;
   position: relative;
-  margin: 5% 15%;
-  padding: 8px;
+  padding: 16px 16px;
   }
-  
+
 /* Точка перелома между 320 и 1280 */
   @media screen and (max-width: 740px) {
     .popup-photo__container {
-      padding: 16px;
-      margin-top: 10%;
+      padding: 8px 0;
     }
   }

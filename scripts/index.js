@@ -71,11 +71,11 @@ closeButtons.forEach((button) => {
 });
 
 // Функция открытия PopUp Photo
-function openPhotoPopup(title, link, alt) {
+function openPhotoPopup(title, link) {
   openPopup(popupPhotoElement);
   popupPhotoTitleElement.textContent = title;
   popupViewElement.src = link;
-  popupViewElement.image = alt;
+  popupViewElement.alt = link;
 }
 
 
@@ -90,10 +90,10 @@ popupOpenButtonElement.addEventListener("click", () =>{
 });
 
 // Регистрируем обработчики событий по клику для .profile__add-button
-popupAddButtonElement.addEventListener("click", () =>
-  openPopup(popupCardElement)
-);
-
+popupAddButtonElement.addEventListener('click', () => {
+	openPopup(popupCardElement);
+	formValidatorForAdd.resetValidation();
+});
 
 
 // ----------------------------------------------------------------
