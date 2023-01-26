@@ -75,7 +75,7 @@ function openPhotoPopup(title, link) {
   openPopup(popupPhotoElement);
   popupPhotoTitleElement.textContent = title;
   popupViewElement.src = link;
-  popupViewElement.alt = link;
+  popupViewElement.alt = title;
 }
 
 
