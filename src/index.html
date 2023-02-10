@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
   </head>
   <body class="page">
     <!-- Блок Header !-->
     <header class="header">
-      <img src="<%=require('../images/logo.svg')%>" class="header__logo" alt="Логотип Mesto" >
+      <img
+        src="<%=require('../images/logo.svg')%>"
+        class="header__logo"
+        alt="Логотип Mesto"
+      />
     </header>
     <main class="content">
       <!-- Секция Profile !-->
       <section class="profile">
-        <img src="<%=require('../images/image.png')%>" class="profile__avatar" alt="Портрет Жак-Ив Кусто">
+        <img
+          src="<%=require('../images/image.png')%>"
+          class="profile__avatar"
+          alt="Портрет Жак-Ив Кусто"
+        />
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button">
-          <img src="<%=require('../images/edit.svg')%>" class="profile__edit" alt="Кнопка 'Редактировать'">
+            <img
+              src="<%=require('../images/edit.svg')%>"
+              class="profile__edit"
+              alt="Кнопка 'Редактировать'"
+            />
           </button>
           <h2 class="profile__subtitle">Исследователь океана</h2>
         </div>
         <button class="profile__add-button">
-          <img src="<%=require('../images/add.svg')%>" class="profile__add" alt="Кнопка 'Добавить'">
+          <img
+            src="<%=require('../images/add.svg')%>"
+            class="profile__add"
+            alt="Кнопка 'Добавить'"
+          />
         </button>
       </section>
       <!-- Секция Elements !-->
-      <section class="elements">
-
-      </section>
+      <section class="elements"></section>
     </main>
     <!-- Блок Footer !-->
     <footer class="footer">
@@ -50,7 +64,7 @@
             minlength="2"
             maxlength="40"
             required
-          >
+          />
           <span id="name-error" class="error error_visible"></span>
           <input
             type="text"
@@ -61,7 +75,7 @@
             minlength="2"
             maxlength="200"
             required
-          >
+          />
           <span id="info-error" class="error error_visible"></span>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
@@ -83,7 +97,7 @@
             minlength="2"
             maxlength="30"
             required
-          >
+          />
           <span id="title-error" class="error error_visible"></span>
           <input
             type="url"
@@ -92,9 +106,15 @@
             name="link"
             placeholder="Ссылка на картинку"
             required
-          >
+          />
           <span id="link-error" class="error error_visible"></span>
-          <button class="popup__save popup__save_invalid popup-card__save" type="submit" disabled>Создать</button>
+          <button
+            class="popup__save popup__save_invalid popup-card__save"
+            type="submit"
+            disabled
+          >
+            Создать
+          </button>
         </form>
       </div>
     </div>
@@ -103,7 +123,7 @@
     <div class="popup popup-photo">
       <div class="popup-photo__container">
         <button class="popup__close popup-photo__close" type="button"></button>
-        <img class="popup-photo__image" src="#" alt="Ваше изображение места">
+        <img class="popup-photo__image" src="#" alt="Ваше изображение места" />
         <p class="popup-photo__title"></p>
       </div>
     </div>
@@ -111,7 +131,7 @@
     <!-- Шаблон Карт !-->
     <template id="place-template">
       <article class="elements__item">
-        <img class="elements__image">
+        <img class="elements__image" />
         <button class="elements__delete" type="button"></button>
         <div class="elements__container">
           <h2 class="elements__title"></h2>

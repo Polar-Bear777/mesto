@@ -2,10 +2,10 @@ import { Popup } from "./Popup.js";
 
 // ОТКРЫТИЕ КАРТИНКИ ПОПАПА
 export class PopupWithImage extends Popup {
-	constructor(popupSelector, popupPhotoTitleElement, popupViewElement) {
+	constructor(popupSelector) {
 		super(popupSelector);
-		this._popupPhotoTitleElement = popupPhotoTitleElement;
-		this._popupViewElement = popupViewElement;
+		this._popupPhotoTitleElement = this._popup.querySelector('.popup-photo__title');
+		this._popupViewElement = this._popup.querySelector('.popup-photo__image');;
 	}
 
 	// Перезаписываем родительский метод openPopup
