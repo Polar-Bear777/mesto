@@ -3,12 +3,14 @@ export class Card {
     constructor( // Добавляем динамические данные, чтобы класс умел создавать карточки
             dataCard,
             templateSelector,
-            openPhotoPopup,
+            handleCardClick,
+            // openPhotoPopup,
             ) {
         this._name = dataCard.name;
         this._link = dataCard.link;
         this._templateSelector = templateSelector; // записали селектор в приватное поле
-        this._openPhotoPopup = openPhotoPopup;
+        // this._openPhotoPopup = openPhotoPopup;
+        this._handleCardClick = handleCardClick;
         }
 
     // Получаем готовую разметку перед размещением на страницу
@@ -36,18 +38,18 @@ export class Card {
 
         this._setEventListeners(); // добавим обработчики
 
-		this._elementPhoto.src = this._link;
-		this._elementPhoto.alt = this._name;
-		this._elementTitle.textContent = this._name;
+		    this._elementPhoto.src = this._link;
+		    this._elementPhoto.alt = this._name;
+		    this._elementTitle.textContent = this._name;
 
         // Вернем новую карточку в DOM
-		return this._element;
+		    return this._element;
     }
 
     // Добавляем слушатель события
     _setEventListeners() {
 		this._elementPhoto.addEventListener('click', () => {
-			this._openPhotoPopup(this._name, this._link)
+			this._handleCardClick(this._name, this._link)
 		});
 		this._like.addEventListener('click', () => {
 			this._handleLikeCard();
@@ -60,7 +62,7 @@ export class Card {
 	// Добавляем удаление карточки с помошью .elements__delete
     _handleDeleteCard() {
 		this._element.remove();
-        this._element = null;
+    this._element = null;
 	}
 
     // Добавляем выделение лайка карточки с помошью .elements__like
