@@ -3,12 +3,12 @@
   display: flex;
   background: #fff;
   flex-direction: column;
-  transition: .1s;
+  transition: 0.1s;
   box-sizing: border-box;
   position: relative;
   padding: 34px 36px 37px;
   width: 430px;
-  }
+}
 
 /* Точка перелома между 320 и 1280 */
 @media screen and (max-width: 740px) {

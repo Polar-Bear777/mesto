@@ -56,10 +56,7 @@ function createCard({ name, link }) {
     "#place-template",
     // openPhotoPopup,
     (title, link) => {
-      modalView.openPopup();
-      popupPhotoTitleElement.textContent = title;
-      popupViewElement.src = link;
-      popupViewElement.openPopup = title;
+      modalView.openPopup(title, link);
     }
   );
 
@@ -70,11 +67,17 @@ function createCard({ name, link }) {
 // ----------------------------------------------------------------
 // ВЫЗОВ ВАЛИДАЦИИ
 // Для кнопки редактировать
-const formValidatorForEdit = new FormValidator(validationConfig, PopupFormElement);
+const formValidatorForEdit = new FormValidator(
+  validationConfig,
+  PopupFormElement
+);
 formValidatorForEdit.enableValidation();
 
 // Для кнопки добавить
-const formValidatorForAdd = new FormValidator(validationConfig, formCardElement);
+const formValidatorForAdd = new FormValidator(
+  validationConfig,
+  formCardElement
+);
 formValidatorForAdd.enableValidation();
 
 // ----------------------------------------------------------------
@@ -108,9 +111,7 @@ const modalAdd = new PopupWithForm(".popup-card", (data) => {
 modalAdd.setEventListeners();
 
 const modalView = new PopupWithImage(
-  ".popup-photo",
-  popupPhotoTitleElement,
-  popupViewElement
+  ".popup-photo"
 );
 // Добавили слушатель клика иконке закрытия попапа
 modalView.setEventListeners();
