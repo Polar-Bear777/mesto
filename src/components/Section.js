@@ -1,19 +1,15 @@
 // ОТРИСОВКА ЭЛЕМЕНТОВ НА СТРАНИЦЕ
 export class Section {
-  constructor({ initialCards, renderer }, selector) {
-    // Массив данных, которые нужно добавить на страницу при инициализации класса
-    this._initialCards = initialCards;
-
+  constructor({ renderer }, selector) {
     // Будет отвечать за создание и отрисовку данных на странице
     this._renderer = renderer;
-
     // В него будем добавлять созданные элементы
     this._container = document.querySelector(selector);
   }
 
   // Отрисовка всех элементов
-  renderItems() {
-    this._initialCards.forEach((item) => {
+  renderItems(initialCards) {
+    initialCards.forEach((item) => {
       // Отрисовка каждого отдельного элемента
       this._renderer(item);
     });

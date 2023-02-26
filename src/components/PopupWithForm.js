@@ -7,10 +7,11 @@ export class PopupWithForm extends Popup {
     this._handleSubmit = handleSubmit;
     this._form = this._popup.querySelector(".popup__form");
     this._inputs = Array.from(this._form.querySelectorAll(".popup__input"));
+    this._submitButton = document.querySelector('.popup__save');
   }
 
   // Cобираем данные всех полей формы
-  _getInputValues() {
+  getInputValues() {
     const inputValues = {}; // Создали пустой объект
     this._inputs.forEach((input) => {
       // Добавили в него значение каждого инпута
@@ -24,7 +25,7 @@ export class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleSubmit(this._getInputValues());
+      this._handleSubmit(this.getInputValues());
     });
   }
 
@@ -33,4 +34,8 @@ export class PopupWithForm extends Popup {
     super.closePopup();
     this._form.reset();
   }
+
+  submitButton(text) {
+		this._submitButton.value = text;
+	}
 }

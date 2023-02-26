@@ -6,6 +6,7 @@
     <title>Mesto</title>
   </head>
   <body class="page">
+
     <!-- Блок Header !-->
     <header class="header">
       <img
@@ -15,39 +16,50 @@
       />
     </header>
     <main class="content">
+
       <!-- Секция Profile !-->
       <section class="profile">
-        <img
-          src="<%=require('../images/image.png')%>"
-          class="profile__avatar"
-          alt="Портрет Жак-Ив Кусто"
-        />
+        <img src="<%=require('../images/image.png')%>" class="profile__avatar" alt="Портрет Жак-Ив Кусто"/>
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button">
-            <img
-              src="<%=require('../images/edit.svg')%>"
-              class="profile__edit"
-              alt="Кнопка 'Редактировать'"
-            />
+            <img src="<%=require('../images/edit.svg')%>" class="profile__edit" alt="Кнопка 'Редактировать'"/>
           </button>
           <h2 class="profile__subtitle">Исследователь океана</h2>
         </div>
         <button class="profile__add-button">
-          <img
-            src="<%=require('../images/add.svg')%>"
-            class="profile__add"
-            alt="Кнопка 'Добавить'"
-          />
+          <img src="<%=require('../images/add.svg')%>" class="profile__add" alt="Кнопка 'Добавить'"/>
         </button>
+        <button class="profile__avatar-button" type="button" aria-label="Редактировать аватар профиля"></button>
       </section>
+
       <!-- Секция Elements !-->
       <section class="elements"></section>
     </main>
+
     <!-- Блок Footer !-->
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
+
+    <!-- PopUp Avatar
+    <div class="popup popup-avatar">
+      <div class="popup-avatar__container">
+        <button type="button" class="popup__close popup-avatar__close"></button>
+        <h3 class="popup__title popup-avatar__title">Обновить аватар</h3>
+        <form name="popupform" action="#" class="popup__form popup-avatar__form" novalidate>
+            <input
+              type="url"
+              name="link"
+              id="link"
+              placeholder="Ссылка на картинку"
+              class="popup__input popup-avatar__input popup-avatar__input_type_avatar"
+              required>
+            <span id="avatar-error" class="error error_visible"></span>
+            <button type="submit" class="popup__save popup-avatar__save">Сохранить</button>
+        </form>
+      </div>
+    </div> -->
 
     <!-- PopUp -->
     <div class="popup profile-popup">
@@ -119,6 +131,17 @@
       </div>
     </div>
 
+    <!-- PopUp Delete !-->
+    <div class="popup popup-delete">
+      <div class="popup-delete__container">
+        <button type="button" class="popup__close popup-delete__close"></button>
+        <h3 class="popup__title popup-delete__title">Вы уверены?</h3>
+        <form name="popupform" action="#" class="popup__form popup-delete__form" novalidate>
+          <button type="submit" class="popup__save popup-delete__save">Да</button>
+        </form>
+      </div>
+    </div>
+
     <!-- PopUp Photo !-->
     <div class="popup popup-photo">
       <div class="popup-photo__container">
@@ -137,7 +160,23 @@
           <h2 class="elements__title"></h2>
           <button class="elements__like" type="button"></button>
         </div>
+        <span class="elements__like-number"></span>
       </article>
     </template>
+
+    <div class="popup popup-avatar">
+      <div class="popup-avatar__container">
+        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_avatar" name="change">
+          <input type="url" id="url" class="popup__input popup__input_type_avatar-link" name="link" placeholder="Ссылка на картинку" required>
+          <span id="url-error" class="error error_visible"></span>
+          <button class="popup__save popup__save-avarar" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+
   </body>
 </html>
