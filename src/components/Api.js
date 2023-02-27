@@ -35,7 +35,7 @@
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+          authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -51,7 +51,7 @@
       return fetch(`${this._baseUrl}/cards`, {
         method: 'POST',
         headers: {
-          authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+          authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -79,7 +79,7 @@
       return fetch(`${this._baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
         headers: {
-          authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+          authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
           'Content-Type': 'application/json'
         },
       })
@@ -91,7 +91,7 @@
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'PUT',
         headers: {
-          authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+          authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
           'Content-Type': 'application/json'
         },
       })
@@ -103,7 +103,7 @@
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: {
-          authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+          authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
           'Content-Type': 'application/json'
         },
       })

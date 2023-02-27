@@ -88,9 +88,9 @@ avatarPopup.setEventListeners();
 
 /* ------------------------ API ------------------------ */
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-60',
   headers: {
-    authorization: 'fe76754b-7973-440a-9fc3-fdd57a5c4607',
+    authorization: 'c7a7f9e2-add2-49e1-b302-3362c55f30ce',
     'Content-Type': 'application/json'
   }
 });
