@@ -1,5 +1,3 @@
-
-
 // КЛАСС ПО СОЗДАНИЮ КАРТОЧКИ
 export class Card {
   constructor(
@@ -48,8 +46,8 @@ export class Card {
     this._elementPhoto.src = this._link;
     this._elementPhoto.alt = this._name;
     this._elementTitle.textContent = this._name;
-    this._likesNumber.textContent = this._likes.length;
 
+    this.toggleLike();
     this._hasDeleteBtn();
     this._setEventListeners();
 
@@ -101,6 +99,7 @@ export class Card {
 		} else {
 			this._like.classList.remove('elements__like_active');
 		}
+    this._likesNumber.textContent = this._likes.length;
 	}
 
 	// Поставить количество лайков

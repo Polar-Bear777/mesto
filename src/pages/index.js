@@ -45,44 +45,13 @@ const popupViewElement = popupPhotoElement.querySelector(".popup-photo__image");
 // Находим попап аватара
 const popupEditAvatar = document.querySelector('.popup-avatar');
 // Находим форму
-const formEditAvatar = popupEditAvatar.querySelector('.popup-avatar__form');
+const avatarForm = document.forms["change"];
 // Находим аватар
 const avatar = document.querySelector('.profile__avatar');
 // Находим кнопку для открытия
-const buttonEditAvatar = document.querySelector('.profile__avatar-button');
+const popupOpenChangeElement = document.querySelector(".profile__avatar-button");
 // Находим инпут
-// const avatarInput = document.querySelector('.popup-avatar__input_type_avatar');
-
-
-const popupOpenChangeElement = document.querySelector(
-  ".profile__avatar-button"
-);
-const avatarForm = document.forms["change"];
 const avatarInput = document.querySelector(".popup__input_type_avatar-link");
-
-popupOpenChangeElement.addEventListener("click", () => {
-  avatarPopup.openPopup();
-  formValidatorForChange.resetValidation();
-});
-
-const formValidatorForChange = new FormValidator(validationConfig, avatarForm);
-formValidatorForChange.enableValidation();
-
-function handleEditAvatar() {
-  avatarPopup.submitButton("Сохранение...");
-  api
-    .editAvatar(avatarInput.value)
-    .then((res) => userInfo.setAvatar(res.avatar))
-    .then(() => avatarPopup.closePopup())
-    .catch((err) => console.log(err))
-    .finally(() => avatarPopup.submitButton("Сохранить"));
-}
-const avatarPopup = new PopupWithForm(".popup-avatar", handleEditAvatar);
-avatarPopup.setEventListeners();
-
-
-
-
 
 
 
@@ -158,20 +127,17 @@ modalDelete.setEventListeners();
 
 
 // ===== Попап аватара ===== //
-// function handleEditAvatar (inputValues) {
-//   console.log(inputValues)
-//   modalChange.submitButton('Сохранение...');
-//   api.editAvatar(inputValues)
-//     .then((userData) => {
-//       userInfo.setAvatar(userData);
-//       modalChange.closePopup();
-//       modalChange.submitButton('Сохранить');
-//   })
-//     .catch((err) => console.log(err))
-// }
-
-// const modalChange = new PopupWithForm('.popup-avatar', handleEditAvatar);
-// modalChange.setEventListeners();
+function handleEditAvatar() {
+  avatarPopup.submitButton("Сохранение...");
+  api
+    .editAvatar(avatarInput.value)
+    .then((res) => userInfo.setAvatar(res.avatar))
+    .then(() => avatarPopup.closePopup())
+    .catch((err) => console.log(err))
+    .finally(() => avatarPopup.submitButton("Сохранить"));
+}
+const avatarPopup = new PopupWithForm(".popup-avatar", handleEditAvatar);
+avatarPopup.setEventListeners();
 
 
 
@@ -190,13 +156,13 @@ popupAddButtonElement.addEventListener("click", () => {
   formValidatorForAdd.resetValidation();
 });
 
-// // КНОПКА АВТАРА .profile__avatar-button
-// buttonEditAvatar.addEventListener("click", () => {
-// 	modalChange.openPopup();
-//   // formEditAvatarValidator
-// 	formEditAvatarValidator.resetValidation();
-// 	modalChange.getInputValues(userInfo.getUserInfo());
-// })
+// КНОПКА АВТАРА .profile__avatar-button
+popupOpenChangeElement.addEventListener("click", () => {
+  avatarPopup.openPopup();
+  formValidatorForChange.resetValidation();
+});
+
+
 
 /* ------------------------ CREATECARD ------------------------ */
 function createCard(item) {
@@ -277,9 +243,8 @@ const formValidatorForAdd = new FormValidator(
 );
 formValidatorForAdd.enableValidation();
 
-// // Для кнопки редактирования аватара
-// const formEditAvatarValidator = new FormValidator(
-//   validationConfig,
-//   formEditAvatar
-// );
-// formEditAvatarValidator.enableValidation();
+// Для кнопки редактирования аватара
+const formValidatorForChange = new FormValidator(
+  validationConfig,
+  avatarForm);
+formValidatorForChange.enableValidation();

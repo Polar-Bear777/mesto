@@ -10,9 +10,9 @@ export class PopupWithImage extends Popup {
 
   // Перезаписываем родительский метод openPopup
   openPopup(title, link) {
-    super.openPopup();
     this._popupViewElement.src = link;
     this._popupViewElement.alt = title;
     this._popupPhotoTitleElement.textContent = title;
+    super.openPopup();
   }
 }

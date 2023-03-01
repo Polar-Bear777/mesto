@@ -42,24 +42,20 @@
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
 
-    <!-- PopUp Avatar
+    <!-- PopUp Avatar -->
     <div class="popup popup-avatar">
       <div class="popup-avatar__container">
-        <button type="button" class="popup__close popup-avatar__close"></button>
-        <h3 class="popup__title popup-avatar__title">Обновить аватар</h3>
-        <form name="popupform" action="#" class="popup__form popup-avatar__form" novalidate>
-            <input
-              type="url"
-              name="link"
-              id="link"
-              placeholder="Ссылка на картинку"
-              class="popup__input popup-avatar__input popup-avatar__input_type_avatar"
-              required>
-            <span id="avatar-error" class="error error_visible"></span>
-            <button type="submit" class="popup__save popup-avatar__save">Сохранить</button>
+        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_avatar" name="change">
+          <input type="url" id="url" class="popup__input popup__input_type_avatar-link" name="link" placeholder="Ссылка на картинку" required>
+          <span id="url-error" class="error error_visible"></span>
+          <button class="popup__save popup__save-avarar" type="submit">
+            Сохранить
+          </button>
         </form>
       </div>
-    </div> -->
+    </div>
 
     <!-- PopUp -->
     <div class="popup profile-popup">
@@ -163,20 +159,6 @@
         <span class="elements__like-number"></span>
       </article>
     </template>
-
-    <div class="popup popup-avatar">
-      <div class="popup-avatar__container">
-        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
-        <h2 class="popup__title">Обновить аватар</h2>
-        <form class="popup__form popup__form_avatar" name="change">
-          <input type="url" id="url" class="popup__input popup__input_type_avatar-link" name="link" placeholder="Ссылка на картинку" required>
-          <span id="url-error" class="error error_visible"></span>
-          <button class="popup__save popup__save-avarar" type="submit">
-            Сохранить
-          </button>
-        </form>
-      </div>
-    </div>
 
   </body>
 </html>
