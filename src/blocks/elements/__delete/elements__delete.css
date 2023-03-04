@@ -8,7 +8,7 @@
   background-position: center;
   align-self: center;
   cursor: pointer;
-  position: relative;
-  left: 244px;
-  top: -266px;
+  position: absolute;
+  right: 15px;
+  top: 18px;
 }

@@ -9,3 +9,12 @@
   position: fixed;
   width: 100%;
 }
+
+/* Точка перелома между 320 и 1280 */
+@media screen and (max-width: 740px) {
+  .popup-avatar__container {
+    padding: 25px 22px 25px;
+    max-width: 282px;
+    max-height: 330px;
+  }
+}
